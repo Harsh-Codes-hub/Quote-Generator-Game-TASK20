@@ -93,8 +93,8 @@ main {
 .quote {
   white-space: nowrap;
   opacity: 0;
-  animation: fadeIn 1s ease-in forwards;
-  transition: top 1s linear;
+  animation: fadeIn 1s ease-out forwards;
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 @keyframes fadeIn {
