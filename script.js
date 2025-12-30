@@ -29,31 +29,35 @@ createBtnEl.addEventListener("click", function () {
   h1El.classList.add("quote");
   const text = quotes[Math.floor(Math.random() * quotes.length)];
   h1El.textContent = text;
+  console.log(h1El.textContent);
   let min = 25;
   let max = 100;
   let top = (Math.random() * 100).toFixed(2);
   let left = (Math.random() * 100).toFixed(2);
   let deg = Math.floor(Math.random() * 360);
-  let c1 = Math.floor(Math.random() * ((max - min) + 1)) + min;
-  let c2 = Math.floor(Math.random() * ((max - min) + 1)) + min;
-  let c3 = Math.floor(Math.random() * ((max - min) + 1)) + min;
+  let c1 = Math.floor(Math.random() * (max - min + 1)) + min;
+  let c2 = Math.floor(Math.random() * (max - min + 1)) + min;
+  let c3 = Math.floor(Math.random() * (max - min + 1)) + min;
   let scale = (Math.random() * 3).toFixed(2) + 1;
   let fontFamily = Math.floor(Math.random() * 4);
+  let zIdx = Math.floor(Math.random() * 101) + 1;
   Object.assign(h1El.style, {
     color: `#ffffff`,
     position: `absolute`,
-    zIndex: 10,
+    zIndex: `${zIdx}`,
     top: `${top}%`,
     left: `${left}%`,
-    scale: `${scale}`,
-    rotate: `${deg}deg`,
+    transform: `rotate(${deg}deg) scale(${scale})`,
     fontFamily: `var(--font-${fontFamily})`,
     textShadow: `1px 1px 1px rgba(${c1}, ${c2}, ${c3}, 1),
                     -1px -1px 1px rgba(${c3}, ${c2}, ${c1}, 1)`,
   });
   mainEl.appendChild(h1El);
 
-  setTimeout(function() {
+  setTimeout(function () {
+    h1El.classList.add("disappear")
+  }, 10000);
+  setTimeout(function () {
     mainEl.removeChild(h1El);
-  }, 10000)
+  }, 12000);
 });

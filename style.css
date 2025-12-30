@@ -52,6 +52,11 @@ button {
 
 body {
   background-color: var(--bg);
+  position: relative;
+  z-index: 1;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 main {
@@ -82,12 +87,10 @@ main {
   transition: all 0.3s ease-out;
 }
 #createBtn:hover {
-  background-color: var(--text);
-  border-color: var(--text);
-  color: var(--bg-dark);
+  scale: 1.1;
 }
 #createBtn:active {
-  scale: 1.1;
+  scale: 0.96;
 }
 
 .quote {
@@ -97,6 +100,10 @@ main {
   background-color: rgba(0, 0, 0, 0.9);
 }
 
+.disappear {
+  animation: fadeOut 1s ease-out forwards;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -104,5 +111,14 @@ main {
   }
   to {
     opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    scale: 0;
   }
 }/*# sourceMappingURL=style.css.map */
